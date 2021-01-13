@@ -1,0 +1,193 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      5570,        184]
+NotebookOptionsPosition[      4932,        156]
+NotebookOutlinePosition[      5270,        171]
+CellTagsIndexPosition[      5227,        168]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"data", " ", "=", " ", 
+  RowBox[{"ReadList", "[", 
+   RowBox[{"\"\<./output.log\>\"", ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"Number", ",", " ", "Number"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.819557543868237*^9, 3.819557626225572*^9}, {
+  3.8195586436535397`*^9, 3.8195586504696836`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0.`", ",", 
+     RowBox[{"-", "17.78`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5.`", ",", 
+     RowBox[{"-", "15.`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"10.`", ",", 
+     RowBox[{"-", "12.22`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"15.`", ",", 
+     RowBox[{"-", "9.44`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"20.`", ",", 
+     RowBox[{"-", "6.67`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"25.`", ",", 
+     RowBox[{"-", "3.89`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"30.`", ",", 
+     RowBox[{"-", "1.11`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"35.`", ",", "1.67`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"40.`", ",", "4.44`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"45.`", ",", "7.22`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"50.`", ",", "10.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"55.`", ",", "12.78`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"60.`", ",", "15.56`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"65.`", ",", "18.33`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"70.`", ",", "21.11`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"75.`", ",", "23.89`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"80.`", ",", "26.67`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"85.`", ",", "29.44`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"90.`", ",", "32.22`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"95.`", ",", "35.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"100.`", ",", "37.78`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.819557603166162*^9, 3.819557629021473*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"g", " ", "=", " ", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"data", ",", 
+    RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+    RowBox[{"PlotRange", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "10"}], ",", "110"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "24"}], ",", "45"}], "}"}]}], "}"}]}], ",", 
+    RowBox[{"FrameLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Fahrenheit\>\"", ",", "\"\<Celsius\>\""}], "}"}]}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.8195577439934683`*^9, 3.819557750551259*^9}, {
+  3.81955778706747*^9, 3.819557825162593*^9}, {3.819557906896161*^9, 
+  3.819557961954921*^9}, {3.81955824822373*^9, 3.8195582503967752`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.24720000000000014`, 0.24, 0.6], PointBox[CompressedData["
+1:eJxTTMoPSmViYGAQBWIQDQMeD6tE1h03PADhiThAaD0oX8Wh0Jbr+uICDShf
+zwGk3P2hEpRv4gDkAEWkoHxLB/nW14E75PihfDuHw181YvoPfdwP5jY4OuyQ
+Ayn4ZQ+Rd4HKC0LsbXCDmi8DdYenA8wdEHlvh/5DIA2aUHE/qH36EL5DgANI
+d1WIEVR9oEMMSIOMKYR/IMhhSQHQQ4/NofpDHN4AdbeutoLqD4X61xaqPwyq
+3wGqP9wB5g+I/kioeU4OAOF+Vko=
+      "]]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesOrigin->{0, 0},
+  Frame->True,
+  FrameLabel->{
+    FormBox["\"Fahrenheit\"", TraditionalForm], 
+    FormBox["\"Celsius\"", TraditionalForm]},
+  Method->{},
+  PlotRange->{{-10, 110}, {-24, 45}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.819557752872183*^9, 3.8195578317142887`*^9, 
+  3.819557927675666*^9, 3.81955796446017*^9, 3.819558258978908*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<./report/fig.pdf\>\"", ",", "g"}], "]"}]], "Input",
+ CellChangeTimes->{{3.819558275771574*^9, 3.81955831367*^9}, {
+  3.8195586607538557`*^9, 3.819558663311232*^9}}],
+
+Cell[BoxData["\<\"~/Desktop/PHYS-3181/week1proj/fig.pdf\"\>"], "Output",
+ CellChangeTimes->{3.819558320752644*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Directory", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.819558669033326*^9, 3.819558672579035*^9}}],
+
+Cell[BoxData["\<\"/home/student\"\>"], "Output",
+ CellChangeTimes->{3.819558676071089*^9}]
+}, Open  ]]
+},
+WindowSize->{740, 867},
+WindowMargins->{{Automatic, 207}, {Automatic, 60}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 330, 7, 32, "Input"],
+Cell[912, 31, 1659, 52, 121, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2608, 88, 780, 20, 55, "Input"],
+Cell[3391, 110, 900, 21, 244, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4328, 136, 218, 4, 32, "Input"],
+Cell[4549, 142, 114, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4700, 148, 123, 2, 32, "Input"],
+Cell[4826, 152, 90, 1, 32, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

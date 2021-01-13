@@ -7,5 +7,5 @@ void main()
     scanf("%lf", &Tf);
 
     double Tc = (Tf-32.)*(5./9.);
-    printf("%lf degrees F corresponds to %lf degrees C\n", Tf, Tc);
+    printf("%.1lf degrees F corresponds to %.1lf degrees C\n", Tf, Tc);
 }
