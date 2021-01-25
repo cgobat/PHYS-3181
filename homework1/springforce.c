@@ -6,9 +6,11 @@
 void main(int argc, char *argv[])
 {
     if (argc != 5) {
-        printf("\nError: wrong number of input values provided.\nPlease pass 4 arguments: A_x, A_y, phi_x, and phi_y, separated by spaces.\n");
+        printf("\nError: wrong number of input values provided.\nPlease pass 4 arguments: A_x, A_y, phi_x, and phi_y, separated by spaces.\n\n");
+        exit(EXIT_FAILURE); // user must provide 4 parameters in order for proper execution
     }
 
+    // 0th element of argv is the program name
     double A_x = atof(argv[1]);
     double A_y = atof(argv[2]);
     double phi_x = atof(argv[3]);

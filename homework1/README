@@ -1,0 +1,12 @@
+Homework 1 code assignment
+PHYS 3181 - Computational Physics, Spring 2021
+Author: Caden Gobat
+
+springforce is the compiled executable of springforce.c, which generates a list of 100 x,y points given 4 parameters: A_x, A_y, phi_x, and phi_y.
+It can also be recompiled using "gcc springforce.c -o springforce -lm". The -lm argument ensures the inclusion/correct linking of math library functions.
+
+To run, call " ./springforce A_x A_y phi_x phi_y" from a command line, where the variable names should be replaced by your parameter values of choice.
+
+Data can be saved using the > character to write the program's output to a specified file location.
+
+The data can then be imported into a Mathematica notebook (an example of which is given here in plotting.nb) for graphing.
