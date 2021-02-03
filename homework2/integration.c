@@ -64,7 +64,7 @@ int main(int argc, char *argv[]) // pass arguments from command line
     {
         double result = 2*integrate_p4(tta_0,1e6);
         double error = fabs(result - 2*M_PI*sqrt(9.81/9.81))/fabs(2*M_PI*sqrt(9.81/9.81));
-        printf("%lf\t%.16lf\n",tta_0,error);
+        printf("%lf\t%.16lf\n",tta_0,result);
     }
 
     return 0;
