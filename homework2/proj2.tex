@@ -139,17 +139,25 @@ Clearly (and somewhat intuitively), smaller starting angles are more accurate to
 \noindent{\bf Bonus Question}
 \medskip
 
-Integration error as a function of starting angle is displayed in Fig.~\ref{fig:pendulum}. The relationship is fairly linear in $\log$-$\log$ space, but gets more accurate even more quickly at smaller angles, when the small angle approximation is truly at its best.
+Integration error as a function of starting angle is displayed in Fig.~\ref{fig:pendulum} on the next page. The relationship is fairly linear in $\log$-$\log$ space, but gets more accurate even more quickly at smaller angles, when the small angle approximation is truly at its best.
 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=4.75in]{homework2/pendulum.png}
-    \caption{Numerical integration error in the pendulum period calculation. The log-slope of the linear part (i.e. between $\theta\approx20^\circ$ and $\theta=50^\circ$) is just under 2.1.}
+    \caption{Numerical integration error in the pendulum period calculation. The log-slope of the linear part (i.e. between $\theta\approx15^\circ$ and $\theta=50^\circ$) is approximately 2.09.}
     \label{fig:pendulum}
 \end{figure}
+
+For the part that is clearly linear, the logarithmic slope is just under 2.1. As before, this implies that for a $\sin$-based function, midpoint integration has convergence $\mathcal{O}(\theta_0^{2.1})$. However, this is not exactly analogous to previous convergence orders, as this power law is over a domain of initial condition possibilities rather than number of bins or bin width. This means that the graph shows less about return on increasing computational complexity and more about the rate at which using a small angle approximation becomes problematic.
 
 \newpage
 
 \section{Conclusions}
+
+These exercises demonstrated both the power and the limitations of numerical integration techniques. A multitude of factors go into determining the accuracy with which a numerical integrator can be used, such as algorithm, step size, domain range, type of integrand, and even initial (starting) conditions.
+
+We saw that for an exponential, the order of convergence for midpoint summation goes as $h^2$, whereas that of lefthand summation is linear in $h$. The most challenging piece of this assignment for me personally was understanding this kind of pseudo big-$\mathcal{O}$ notation to talk about the rates at which different algorithms converge to the analytical solution.
+
+In all, this assignment went well and I came away with a better understanding of how to implement numerical methods in C.
 
 \end{document}
