@@ -1,0 +1,13 @@
+Homework 4 code assignment
+PHYS 3181 - Computational Physics, Spring 2021
+Author: Caden Gobat
+
+Uses Runge-Kutta integration to simulate gravitational interaction between an arbitrary number of bodies in space based on parameters specified from the command line.
+It can be compiled using "gcc Nbody_integrator.c -o Nbody". This produces an executable called Nbody
+
+To run, call "./Nbody dt tmax m1 x1 y1 vx1 vy1 m2 x2 y2 vx2 vy2 m3 x3 y3 vx3 vy3" from a command line, where the variable names should be replaced by your parameter values of choice:
+    m1, m2, and m3 are the masses of the bodies in units of solar mass
+    x1, y1, x2, y2, x3, and y3 are the initial positions in units of AU
+    vx1, vy1, vx2, vy2, vx3, and vy3 are the initial velocity components in units of AU/year
+    dt is the time step size to use
+    tmax is the total time over which to run
