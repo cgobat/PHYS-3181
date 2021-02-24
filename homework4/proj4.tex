@@ -93,29 +93,31 @@ The period for the planet in each case is $\ \sim 1$ year because the initial ve
 \begin{figure}[H]
     \centering
     \includegraphics[width=5.5in]{homework4/p2_CM_scaled.png}
-    \caption{Trajectories of three bodies over 8 years when $M_1=M_2=M_3=M_\odot$ with initial conditions satisfying $x_1 = (0,0)$ AU, $v_1 = (1,−1)$ AU/yr, $x_2 = (1,0)$ AU, $v_2 = (0,6)$ AU/yr, $x_3 = (2,0)$ AU, $v_3 = (0,−6)$ AU/yr at time $t=0$.}
+    \caption{Trajectories of three bodies over 8 years when $M_1=M_2=M_3=M_\odot$ with initial conditions satisfying $x_1 = (0,0)$ AU, $v_1 = (1,−1)$ AU/yr, $x_2 = (1,0)$ AU, $v_2 = (0,6)$ AU/yr, $x_3 = (2,0)$ AU, $v_3 = (0,−6)$ AU/yr at time $t=0$. Positions have been adjusted so as to be recentered on the center of mass at each time step in order to visualize the inherent motion of the system without overall drift.}
     \label{fig:p2_orbits}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=5.5in]{homework4/q2_energy.png}
-    \caption{Specific orbital energy (total energy per unit mass) breakdown of the 3-body system over 12 years. Total energy ($\epsilon_k + \epsilon_p$) remains constant, as expected, for the first $\ \sim 9$ years of the simulation, after which an obvious discontinuity occurs.}
+    \caption{Specific orbital energy (total energy per unit mass) breakdown of the 3-body system over 12 years. Total energy ($\epsilon_k + \epsilon_p$) remains constant, as expected, for the first $\ \sim 9$ years of the simulation, after which an obvious discontinuity occurs. Note the separate scaling for the individual energy components (left vertical axis) and the total energy (right vertical axis).}
     \label{fig:p2_energy}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=5in]{homework4/minsep.png}
-    \caption{Reciprocal of the separation between the two closest bodies at any given time over a 12-year simulation. This quantity $\frac{1}{r_\text{min}}$ is proportional to $a$, as is evident from Eq.~\ref{eq:velocity}.}
+    \includegraphics[width=4.9in]{homework4/minsep.png}
+    \caption{Reciprocal of the separation between the two closest bodies at any given time over a 12-year simulation. This quantity $\frac{1}{r_\text{min}}$ is proportional to $a_\text{max}$---a result that follows from Eq.~\ref{eq:velocity}. Note the choice of logarithmic scaling on the vertical axis to better show features at all scales. This plot provides some insight into the discontinuity in energy seen in Fig.~\ref{fig:p2_energy}. At right around $t\simeq9$ years, we observe a large spike in the reciprocal of the smallest separation. This corresponds to pronounced spike in the acceleration of the system as well, which means that the finite time step $dt$ is less able to ``keep up,'' thus introducing error.}
     \label{fig:minsep}
 \end{figure}
+
+This error is somewhat difficult to address, as it results from the fact that the objects pass within $\ \sim\frac{1}{400}$ AU of one another. Given that this distance is approximately half the radius of the Sun itself ($R_\odot\approx\frac{1}{215}$ AU), if we interpret each of these three bodies as a Sun-like object, it would mean two of them actually come into contact with one another at this point. There is no way to reliably predict what would happen in this case using this code which treats all bodies as point masses, and the acceleration is so great than an \emph{extremely} fine time resolution around this time would be needed in order to accurately accommodate the magnitude of the quantities involved.
 
 \bigskip
 \noindent{\bf Question 3}
 \medskip
 
-The computational complexity of performing an $N$-body simulation like this is $\mathcal{O}(N^2)$. For every new body introduced, one must run all of the calculations for each of the other bodies' relations to it. For example, a system of 2 bodies requires only one relationship to be calculated (plus the ``self''-computation, in some sense). Doubling $N$ to a 4-body system now requires computing a total of 8 interactions. Thus we observe that a doubling of $N$ results in a quadrupling ($\times N^2$) of the required computations.
+The computational complexity of performing an $N$-body simulation like this is $\mathcal{O}(n^2)$. For every new body introduced, one must run all of the calculations for each of the other bodies' relations to it. For example, a system of 2 bodies requires only one relationship to be calculated (plus the ``self''-computation, in some sense). Doubling $N$ to a 4-body system now requires computing a total of 8 interactions. Thus we observe that a doubling of $N$ results in a quadrupling ($\times N^2$) of the required computations.
 
 \section{Conclusions}
 
