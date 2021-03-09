@@ -39,7 +39,6 @@ void f(double *x, double t, double* res)
   }
 }
 
-
 void rk2(double* xn, double t, double dt, double* res)
 {
   double k1[2*NBODY*DIM]; f(xn, t, k1);
@@ -52,51 +51,54 @@ void rk2(double* xn, double t, double dt, double* res)
 
 int main(int argc, char** argv)
 {
-  for(int i = 1; i<argc; i++) printf("%s ",argv[i]);
+  //for(int i = 1; i<argc; i++) fprintf(stderr,"%s ",argv[i]);
   double dt = atof(argv[1]);
   double tmax = atof(argv[2]);
   int nstep = tmax/dt;
-  double masses[NBODY];
-  double positions[DIM*NBODY];
-  double velocities[DIM*NBODY];
-  for(int i=0;i<3;i++) masses[i] = atof(argv[3+i*5]);
-  for(int i = 0; i<DIM*NBODY; i+=DIM)
-  {
-    for(int j = 0; j<DIM; j++)
-    {
-      positions[i+j] = atof(argv[4+j+i*5]);
-      velocities[i+j] = atof(argv[4+DIM+j+i*5]);
-    }
-  }
-  printf("foo\n");
-  for(int i=0; i<NBODY*DIM; ++i) printf("%.3e ", positions[i]);
-  // double m1 = atof(argv[3]);
-  // double x1 = atof(argv[4]);
-  // double y1 = atof(argv[5]);
-  // double vx1 = atof(argv[6]);
-  // double vy1 = atof(argv[7]);
-  // double m2 = atof(argv[8]);
-  // double x2 = atof(argv[9]);
-  // double y2 = atof(argv[10]);
-  // double vx2 = atof(argv[11]);
-  // double vy2 = atof(argv[12]);
-  // double m3 = atof(argv[13]);
-  // double x3 = atof(argv[14]);
-  // double y3 = atof(argv[15]);
-  // double vx3 = atof(argv[16]);
-  // double vy3 = atof(argv[17]);
-  // double state[2*NBODY*DIM] = {x1, vx1, y1, vy1, x2, vx2, y2, vy2, x3, vx3, y3, vy3};
+  // double masses[NBODY];
+  // double positions[DIM*NBODY];
+  // double velocities[DIM*NBODY];
+  // for(int i=0;i<3;i++) masses[i] = atof(argv[3+i*5]);
+  // for(int i = 0; i<DIM*NBODY; i+=DIM)
+  // {
+  //   for(int j = 0; j<DIM; j++)
+  //   {
+  //     positions[i+j] = atof(argv[4+j+i*5]);
+  //     velocities[i+j] = atof(argv[4+DIM+j+i*5]);
+  //   }
+  // }
+  // printf("foo\n");
+  // for(int i=0; i<NBODY*DIM; ++i) printf("%.3e ", positions[i]);
+  double m1 = atof(argv[3]);
+  double x1 = atof(argv[4]);
+  double y1 = atof(argv[5]);
+  double vx1 = atof(argv[6]);
+  double vy1 = atof(argv[7]);
+  double m2 = atof(argv[8]);
+  double x2 = atof(argv[9]);
+  double y2 = atof(argv[10]);
+  double vx2 = atof(argv[11]);
+  double vy2 = atof(argv[12]);
+  double m3 = atof(argv[13]);
+  double x3 = atof(argv[14]);
+  double y3 = atof(argv[15]);
+  double vx3 = atof(argv[16]);
+  double vy3 = atof(argv[17]);
+  double state[2*NBODY*DIM] = {x1, y1, vx1, vy1, x2, y2, vx2, vy2, x3, y3, vx3, vy3};
+  mass[0] = m1;
+  mass[1] = m2;
+  mass[2] = m3;
 
-printf("%.3e ", 0.0);
-for(int i=0; i<2*NBODY*DIM; ++i) printf("%.3e ", state[i]);
-printf("\n");
+printf("\n%.6e ", 0.0);
+for(int i=0; i<2*NBODY*DIM; ++i) printf("%.6e ", state[i]);
+printf("\n",nstep);
 
 for(int i=0; i<nstep; ++i)
 {
   double result[2*NBODY*DIM];
   rk2(state, i*dt, dt, result);
-  printf("%.3e ", i*dt+dt);
-  for(int j=0; j<2*NBODY*DIM; ++j) printf("%.3e ", result[j]);
+  printf("%.6e ", i*dt+dt);
+  for(int j=0; j<2*NBODY*DIM; ++j) printf("%.6e ", result[j]);
   printf("\n");
   for(int j=0; j<2*NBODY*DIM; ++j) state[j] = result[j];
 }
