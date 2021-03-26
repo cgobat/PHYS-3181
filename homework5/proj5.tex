@@ -32,7 +32,7 @@
 
 \section{Introduction}
 
-In this assignment, we look at the technique of matrix-based Gaussian elimination to solve very large systems of equations that would be wildly unrealistic to undertake by hand.
+In this assignment, we employ the linear algebra technique of matrix-based Gaussian elimination to solve very large systems of equations that would be wildly unrealistic to undertake by hand.
 
 \section{Results}
 
@@ -40,7 +40,7 @@ In this assignment, we look at the technique of matrix-based Gaussian eliminatio
 \noindent{\bf Question 1}
 \medskip
 
-The code-based numerical solution for the equivalent resistance between $(0,0)$ and $(1,1)$ on a $2\times2$ grid is 0.5 $\Omega$, if we take each individual resistor to have a value of 1 $\Omega$. To determine an analytical solution to this simple case, we can consider the rules for summing resistors in series and in parallel:
+The code-based numerical solution for the equivalent resistance between $(0,0)$ and $(1,1)$ on a $2\times2$ grid is 0.5 $\Omega$, if we take each individual resistor to have a value of 1 $\Omega$. To determine an analytical solution to this simple case, we recall the rules for summing resistors in series and in parallel:
 
 \begin{gather*}
               \begin{aligned}
@@ -56,16 +56,15 @@ Where $R_n$ is the value of each individual resistor. (Here, $R_n = 1\ \Omega\ \
 This agrees with the code's result.
 
 \bigskip
-{\bf Question 2}
+\noindent{\bf Question 2}
 \medskip
 
 The equivalent resistance between the points $(1,1)$ and $(3,2)$ on a $5\times5$ grid is 0.68 $\Omega$. We get the exact same result for the resistance between the points $(0,0)$ and $(2,1)$ again due to the fact that the ``endpoint'' resistors wrap around and are thus not really endpoints at all, meaning that absolute positions are arbitrary---relative separations are all that matters in these problems.
 
 \bigskip
-{\bf Question 3}
+\noindent{\bf Question 3}
 \medskip
 
-Resistance between $(0,0)$ and $(1,2)$ on an $N\times N$ grid:
 \begin{table}[H]
     \centering
     \begin{tabular}{c|c}
@@ -76,18 +75,28 @@ Resistance between $(0,0)$ and $(1,2)$ on an $N\times N$ grid:
         30 & 0.770466 $\Omega$ \\
         40 & 0.771678 $\Omega$
     \end{tabular}
-    \caption{Caption}
+    \caption{Equivalent resistance between the nodes $(0,0)$ and $(1,2)$ on an $N\times N$ grid.}
     \label{tab:knightsjump}
 \end{table}
 
-For Question 3 we are asked to analyze the resistance value between a "knight's jump" on the infinite grid, or from (0, 0) to (1, 2), for N=10, 20, 30, and 40. Computing the result for the 10x10 grid took under 1 second, 20x20 approximately 5 seconds, 30x30 45 seconds, and 40x40 300 seconds.
-For $N=10, R_{(0,0)-(1,2)}=0.748564\Omega$, $N=20, R_{(0,0)-(1,2)}=0.767009\Omega$, $N=30, R_{(0,0)-(1,2)}=0.770466\Omega$, and $N=40, R_{(0,0)-(1,2)}=0.771678\Omega$.
-In Figure 1a I have fit the results to $a+\frac{b}{N^2}$, and in Figure 1b I fit the results to $a+\frac{b}{N^2}+\frac{c}{N^4}$. For the first fit $a+b/N^2,  a=0.773199, \text{and } b=-2.46406$. For the second fit $a+b/N^2+c/N^4, a=0.77324, b=-2.50052, \text{and } c=3.29325$. These are essentially the same
-fits to the data, however the second function is slightly more precise because of the $N^{-4}$ order correction allowing for better accuracy of the fit rather than just having a $N^{-2}$. Both a values express that a is the maximum resistance for the infinite grid, and as N increases the resistance
-will get closer and closer to that a value. When N goes to infinity then the resistance function will go to a. This is an interesting result that the fit allows us to see.  
+\begin{figure}[H]
+    \centering
+    \includegraphics{homework5/3a.png}
+    \caption{Equivalent resistances as a function of $N$ using a polynomial of the form $R_\text{eq}=a+b/N^2$. The optimized parameters are $a=0.7732$ and $b=-2.4641$. This model tells us that an infinite grid should have a resistance of 0.7732 $\Omega$ between these two points.}
+    \label{fig:n2fit}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{homework5/3b.png}
+    \caption{Equivalent resistances as a function of $N$ using a polynomial of the form $R_\text{eq}=a+b/N^2+c/N^4$. The optimized parameters are $a=0.7732$, $b=-2.5005$, and $c=3.2933$. This model tells us that an infinite grid should again have a resistance of 0.7732 $\Omega$ between these two points.}
+    \label{fig:n4fit}
+\end{figure}
+
+The fits are both visually very close, and result in very similar results for $\displaystyle \lim_{N\to\infty}R_\text{eq}$. The second (fourth-order) function nominally allows for a closer fit, although theis raises the question as to whether this extra precision is warranted or whether it is an example of overfitting, given the already good fit granted by a function of order $N^{-2}$.
 
 \bigskip
-{\bf Question 4}
+\noindent{\bf Question 4}
 \medskip
 
 \begin{table}[H]
@@ -100,18 +109,23 @@ will get closer and closer to that a value. When N goes to infinity then the res
         30 & 18.108 s \\
         40 & 127.640 s
     \end{tabular}
-    \caption{Caption}
+    \caption{Computational times to determine the equivalent resistance between the nodes $(0,0)$ and $(1,2)$ with an $N\times N$ grid for various values of $N$.}
     \label{tab:timing}
 \end{table}
 
-For Question 4 we are asked to figure out the time it takes to compute the answer's to the previous question as a function of N. In Figure 2, I plotted the time t in seconds to do the computation, versus the N value of the grid. As you can see the plot is a log-log plot, and the slope of the 
-plot is 5.8061. Therefore, this shows that the computational time is a function proportional to $N^{5.8061}$ which is  approximately $N^6$. Fitting the time as a function of $N^6$, you get $t(N)=6.65105*10^{-8}N^6$. So the time it takes to compute a knight's jump for $N=100$ would 
-be 66510.5 seconds.   
+The logarithmic slope (i.e., index of the power law) between the minimum and maximum points is 6.027. This tells us that the computational time scales as approximately $\mathcal{O}(N^6)$. A plot of the timing points and the fit through them using a function of the form $aN^6$ is shown in Fig.~\ref{fig:timing}. The best-fit value of $a$ here is approximately $3.1\cdot10^{-8}$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{homework5/time.png}
+    \caption{CPU time used to calculate the equivalent resistances between the given points on a grid of dimension $N$. This relationship shows close adherence to a power law, as evidenced by the fact that it looks linear in log-space.}
+    \label{fig:timing}
+\end{figure}
 
 \section{Conclusions}
 
-As compared to previous assignments, I had a few more technical difficulties this time around. At first my \texttt{C} code was not functioning properly at all, and I had to scale back on some of the generalizability that I had tried to implement during the debugging process.
+The main challenge for me in this assignment was wrapping my head around the enumeration system for indexing the resistors and vertices on the grid. However, I eventually realized that because of the wrap-around nature of the setup, as long as every resistor and pair of nodes is accounted for, it actually does not matter how they are ordered in the backend of the code. Once the matrix is constructed, the Gaussian elimination algorithm does not care about the order of the equations.
 
-Additionally, the requested timestep of $dt=10^{-6}$ years is extremely computationally demanding, especially when the time domain spans 8 or 12 years. I found myself sitting idle for long periods of time simply waiting for my code to finish execution, before even knowing if the results were good or not. Additionally, the simulation results and output are at least 1--2 GB in size for some of the time domains required in this assignment. I compared the shapes of the orbits using $dt=10^{-5}$ years and $dt=10^{-6}$ years and found only minimal differences, so I hesitate to say that the marginally increased accuracy afforded by the smaller time step is worth the increased computational time.
+With this conceptual barrier out of the way, I was able to fairly easily execute the rest of the tasks to solve the problems presented here, and having to code our own linear algebra routines certainly gave me a greater appreciation for the field as a whole.
 
 \end{document}
