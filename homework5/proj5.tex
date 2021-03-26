@@ -1,0 +1,117 @@
+\documentclass{article}
+
+\usepackage{graphicx, xcolor}
+\usepackage{amsmath, amssymb}
+\usepackage{float}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+
+\usepackage[margin=1in]{geometry}
+
+\def\hwtitle{Homework 5: Linear Algebra}
+\def\hwauthor{Caden Gobat}
+\def\hwdate{\today}
+
+\usepackage{fancyhdr}
+\lhead{\hwauthor}
+\chead{\hwtitle}
+\rhead{\hwdate}
+\lfoot{\hwauthor}
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\footrulewidth}{0.4pt}
+\pagestyle{fancy}
+
+\author{\hwauthor}
+\title{\hwtitle}
+\date{\hwdate}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\section{Introduction}
+
+In this assignment, we look at the technique of matrix-based Gaussian elimination to solve very large systems of equations that would be wildly unrealistic to undertake by hand.
+
+\section{Results}
+
+\bigskip
+\noindent{\bf Question 1}
+\medskip
+
+The code-based numerical solution for the equivalent resistance between $(0,0)$ and $(1,1)$ on a $2\times2$ grid is 0.5 $\Omega$, if we take each individual resistor to have a value of 1 $\Omega$. To determine an analytical solution to this simple case, we can consider the rules for summing resistors in series and in parallel:
+
+\begin{gather*}
+              \begin{aligned}
+               R_{\text{s}} = \sum_{n} {R_n} \\ 
+               \frac{1}{R_{\text{p}}} = \sum_{n} {\frac{1}{R_n}}
+             \end{aligned}
+\end{gather*}
+
+Where $R_n$ is the value of each individual resistor. (Here, $R_n = 1\ \Omega\ \forall\ n$.) Because the resistors at the end of each column and row wrap back to the beginning, this grid simplifies to a circuit with two branches which are each made up of two pairs of parallel resistors in series with one another. Thus,
+\begin{equation*}
+    R_\text{eq} = \frac{1}{2\left(\frac{1}{1+1}+\frac{1}{1+1}\right)} = \frac{1}{2}\ \Omega
+\end{equation*}
+This agrees with the code's result.
+
+\bigskip
+{\bf Question 2}
+\medskip
+
+The equivalent resistance between the points $(1,1)$ and $(3,2)$ on a $5\times5$ grid is 0.68 $\Omega$. We get the exact same result for the resistance between the points $(0,0)$ and $(2,1)$ again due to the fact that the ``endpoint'' resistors wrap around and are thus not really endpoints at all, meaning that absolute positions are arbitrary---relative separations are all that matters in these problems.
+
+\bigskip
+{\bf Question 3}
+\medskip
+
+Resistance between $(0,0)$ and $(1,2)$ on an $N\times N$ grid:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c}
+        $N$ & $R_\text{eq}$ \\
+        \hline 
+        10 & 0.748564 $\Omega$ \\
+        20 & 0.767009 $\Omega$ \\
+        30 & 0.770466 $\Omega$ \\
+        40 & 0.771678 $\Omega$
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:knightsjump}
+\end{table}
+
+For Question 3 we are asked to analyze the resistance value between a "knight's jump" on the infinite grid, or from (0, 0) to (1, 2), for N=10, 20, 30, and 40. Computing the result for the 10x10 grid took under 1 second, 20x20 approximately 5 seconds, 30x30 45 seconds, and 40x40 300 seconds.
+For $N=10, R_{(0,0)-(1,2)}=0.748564\Omega$, $N=20, R_{(0,0)-(1,2)}=0.767009\Omega$, $N=30, R_{(0,0)-(1,2)}=0.770466\Omega$, and $N=40, R_{(0,0)-(1,2)}=0.771678\Omega$.
+In Figure 1a I have fit the results to $a+\frac{b}{N^2}$, and in Figure 1b I fit the results to $a+\frac{b}{N^2}+\frac{c}{N^4}$. For the first fit $a+b/N^2,  a=0.773199, \text{and } b=-2.46406$. For the second fit $a+b/N^2+c/N^4, a=0.77324, b=-2.50052, \text{and } c=3.29325$. These are essentially the same
+fits to the data, however the second function is slightly more precise because of the $N^{-4}$ order correction allowing for better accuracy of the fit rather than just having a $N^{-2}$. Both a values express that a is the maximum resistance for the infinite grid, and as N increases the resistance
+will get closer and closer to that a value. When N goes to infinity then the resistance function will go to a. This is an interesting result that the fit allows us to see.  
+
+\bigskip
+{\bf Question 4}
+\medskip
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|r}
+        $N$ & CPU time \\
+        \hline 
+        10 & 0.030 s \\
+        20 & 1.608 s \\
+        30 & 18.108 s \\
+        40 & 127.640 s
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:timing}
+\end{table}
+
+For Question 4 we are asked to figure out the time it takes to compute the answer's to the previous question as a function of N. In Figure 2, I plotted the time t in seconds to do the computation, versus the N value of the grid. As you can see the plot is a log-log plot, and the slope of the 
+plot is 5.8061. Therefore, this shows that the computational time is a function proportional to $N^{5.8061}$ which is  approximately $N^6$. Fitting the time as a function of $N^6$, you get $t(N)=6.65105*10^{-8}N^6$. So the time it takes to compute a knight's jump for $N=100$ would 
+be 66510.5 seconds.   
+
+\section{Conclusions}
+
+As compared to previous assignments, I had a few more technical difficulties this time around. At first my \texttt{C} code was not functioning properly at all, and I had to scale back on some of the generalizability that I had tried to implement during the debugging process.
+
+Additionally, the requested timestep of $dt=10^{-6}$ years is extremely computationally demanding, especially when the time domain spans 8 or 12 years. I found myself sitting idle for long periods of time simply waiting for my code to finish execution, before even knowing if the results were good or not. Additionally, the simulation results and output are at least 1--2 GB in size for some of the time domains required in this assignment. I compared the shapes of the orbits using $dt=10^{-5}$ years and $dt=10^{-6}$ years and found only minimal differences, so I hesitate to say that the marginally increased accuracy afforded by the smaller time step is worth the increased computational time.
+
+\end{document}
