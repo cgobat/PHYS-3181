@@ -1,0 +1,9 @@
+Homework 5 code assignment
+PHYS 3181 - Computational Physics, Spring 2021
+Author: Caden Gobat
+
+The code in resistorgrid.c computes the equivalent resistance between two vertices (located at x1,y1 and x2,y2) of an NxN grid of 1 Ohm resistors.
+It can be compiled using "gcc -o computeresistance resistorgrid.c linalgebra.c". This will produce an executable called computeresistance.
+The linalgebra.c source file and the linalgebra.h header file should be in the same directory, as they include linear algebra helper functions that the main code relies on.
+
+To run, call "./computeresistance N x1 y1 x2 y2" from the command line, where the variable names should be replaced by the user's parameter values of choice.
