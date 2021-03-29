@@ -1,0 +1,14 @@
+Homework 6 code assignment
+PHYS 3181 - Computational Physics, Spring 2021
+Author: Caden Gobat
+
+To compile, call "gcc -o fit fit.c linalgebra.c". This produces an executable called fit
+
+fit.c contains code to read and fit data from a file where each line is of the form <independent var> <dependent variable> <error>.
+As coded now, it takes the filename and the number of lines from the file to read as command-line arguments.
+
+For example, it can be run by calling "./fit cannonball.dat 13" from a command line, which fits the data contained in the first 13 lines of cannonball.dat
+
+The order of the polynomial is currently set to 2, but can be easily altered by changing the #define near the top of the code.
+
+The code outputs the chi-squared values, as well as the coefficients of the polynomial, which can then be used to plot the function in Mathematica and compare it to the data.
