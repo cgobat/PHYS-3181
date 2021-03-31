@@ -46,7 +46,7 @@ double chisq_fit(struct dpoint* data, int M, double *a, int N) // chi-squared mi
 
 int main(int argc, char *argv[])
 {
-    char* path = argv[1];
+    char *path = argv[1];
     int N = atoi(argv[2]);
     struct dpoint* data = malloc(N*sizeof(struct dpoint));
     FILE *filepointer;
