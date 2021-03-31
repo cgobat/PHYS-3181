@@ -33,9 +33,9 @@
 \section{Introduction}
 
 In this assignment, address the ubiquitous problem of fitting an analytical function to discrete/numerical data. To do this, we will attempt to minimize a $\chi^2$ (chi-squared) goodness-of-fit measure to optimize a set of coefficients on a polynomial. The $\chi^2$ statistic is defined as \begin{equation*}
-    \chi^2 \equiv \sum_i = \frac{(P(x_i)-y_i)^2}{\sigma_i^2}
+    \chi^2 \equiv \sum_i \frac{(P(x_i)-y_i)^2}{\sigma_i^2}
 \end{equation*}
-Where $P(x)$ is a fitted polynomial function and $x$, $y$, and $\sigma$ are the independent quantity, dependent quantity, and standard error around $y$, respectively. We will use this to determine whether certain models appropriately describe our data.
+Where $P(x)$ is a fitted polynomial function and $x$, $y$, and $\sigma$ are the independent quantity, dependent quantity, and standard error in $y$, respectively. We will use this value to determine whether certain models appropriately describe our data.
 
 \section{Results}
 
@@ -110,21 +110,21 @@ which does not rely on the data coming with any error $\sigma$. However, being a
 comes within the realm of feasibility, providing the fit shown in Fig.~\ref{fig:decay}. This yields $\chi^2=1606.5$ and we have 20 data points in \texttt{decay.dat}, so there are $20-5=15$ degrees of freedom in this fit. Therefore the reduced $\chi^2$ is $\chi_\nu^2 \cong 107.1$. This is still very poor. There is a chance that moving up to higher order polynomials may improve this, but a much better option would be to change the underlying model itself. For example, using an exponential model with fitted parameters \begin{equation*}
     133565e^{-0.086t}
 \end{equation*}
-gives $\chi^2=12.2$ with $\chi_\nu^2 = 0.677$. This is an order of magnitude improvement, and requires fewer parameters to attain a much better fit. Therefore we can conclude that this is a better fundamental model. 
+gives $\chi^2=12.2$ with $\chi_\nu^2 = 0.677$. This is an improvement of two orders of magnitude, and requires fewer parameters to attain a much better fit. Therefore we can conclude that this is a better fundamental model. 
 
 We can determine the half life by solving $\displaystyle 0.5 = e^{-0.086t}$. This yields $\ln(0.5)=-0.086t \implies t = 8.06$ days, or around 696000 seconds. This matches most closely with iodine-131, which has a half life of approximately 693 ks.
 
 \begin{figure}[H]
     \centering
-    \includegraphics{}
-    \caption{Caption}
+    \includegraphics[width=6in]{homework6/decay.png}
+    \caption{Radioactive decay data with two models fitted. Parameters for each model are those given above, with the exponential fit being decidedly better.}
     \label{fig:decay}
 \end{figure}
 
 \section{Conclusions}
 
-The main challenge for me in this assignment was wrapping my head around the enumeration system for indexing the resistors and vertices on the grid. However, I eventually realized that because of the wrap-around nature of the setup, as long as every resistor and pair of nodes is accounted for, it actually does not matter how they are ordered in the backend of the code. Once the matrix is constructed, the Gaussian elimination algorithm does not care about the order of the equations.
+I greatly enjoyed this assignment, and I have a much better understanding of the mechanism behind $\chi^2$ analysis now, having built a fitting engine from the ground up. I also appreciated learning the underlying statistical theory of confidence levels and distributions.
 
-With this conceptual barrier out of the way, I was able to fairly easily execute the rest of the tasks to solve the problems presented here, and having to code our own linear algebra routines certainly gave me a greater appreciation for the field as a whole.
+I am curious about how one might deal with errors in the horizontal direction (i.e. an error on the $x$-values as well), and am looking forward to continuing to work on these kinds of problems.
 
 \end{document}
