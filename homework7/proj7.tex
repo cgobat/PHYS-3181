@@ -43,32 +43,19 @@ Where $P(x)$ is a fitted polynomial function and $x$, $y$, and $\sigma$ are the 
 \noindent{\bf Question 1}
 \medskip
 
-Fitting the first 6 seconds of the data ($0\leq t < 6$) yields a fit of \begin{equation*}
-    y(t) = -5.0535t^2 + 2.46 t + 16381.7
-\end{equation*}
-With a $\chi^2$ value of approximately 6.35. Because we know the equation of motion should be of the form $\displaystyle \frac{1}{2}gt^2 + v_0 t + y_0$, we can interpret these parameters to find that the fit has returned a value for gravitational acceleration of $g\approx-10.11\text{ m/s}^2$.
-
-Given that this subset of the data consists of 12 data points (two samples per second; 6 seconds) and we are fitting 3 parameters (coefficients on the quadratic, linear, and constant terms), the total degrees of freedom is 9. Thus the reduced chi-squared value (i.e. $\frac{\chi^2}{\text{dof}}$) for this fit is 0.706, which (because it is less than 1) indicates that this routine has \emph{over}fit the data.
-
-The percent confidence $\alpha$ for this fit can be calculated by \begin{equation*}
-    \int_{\chi_\nu^2}^\infty f(\chi^2) d\chi^2 = \alpha
-\end{equation*} where $f(\chi^2)$ is the chi-squared distribution.\footnote{$\displaystyle f(\chi^2) = \frac{e^{-\chi^2/2}}{2^{\nu/2}\ \Gamma(\nu/2)}\cdot\left(\chi^2\right)^{\frac{\nu}{2}-1}$} This $\alpha$ is then the probability that any deviation in $\chi_\nu^2$ from its expected value (based on the known $\chi^2$ distribution) is due to a probabilistic fluke and not an actual flaw in the model/fit parameters. In \texttt{Mathematica}, this calculation can be accomplished by running \verb|1-CDF[ChiSquareDistribution[|$\nu$\verb|], |$\chi^2$\verb|]| (with $\chi^2 \cong 6.35$ and $\nu=N-3=9$), which yields $\alpha\cong0.704$. This means we can be approximately 70\% confident that this model is appropriate for these data.
-
-\begin{table}[H]
+\begin{figure}[H]
     \centering
-    \begin{tabular}{c|l|l}
-         & Value & Expectation \\
-        \hline
-        $g$ & -10.11 & -9.81 \\
-        $v_0$ & 2.46 & $\sim-15.62$ \\
-        $y_0$ & 16381.7 & 16381.567 \\
-        $\chi^2$ & 6.35 & 9 \\
-        $\chi_\nu^2$ & 0.706 & 1 \\
-        conf & 0.704 &
-    \end{tabular}
-    \caption{Summary of second-order polynomial fit results for the first 6 seconds of \texttt{cannonball.dat} data.}
-    \label{tab:fit1}
-\end{table}
+    \includegraphics[width=4.5in]{homework7/uniform_dist.png}
+    \caption{100-bin histogram (in gold) with 100 bins of 100,000 random numbers generated using \texttt{C}'s \texttt{drand48()} function. As expected, this conforms relatively closely to a uniform distribution of floating point numbers between 0 and 1, the PDF of which is shown in blue.}
+    \label{fig:drand48}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=4.5in]{homework7/normal_dist.png}
+    \caption{100-bin histogram (in gold) of 100,000 random numbers generated using our \texttt{gaussrnd()} function. As expected, this conforms quite closely to a normal distribution with $\mu=1$ and $\sigma=1$, the PDF of which is shown in blue.}
+    \label{fig:gaussrnd}
+\end{figure}
 
 \bigskip
 \noindent{\bf Question 2}
