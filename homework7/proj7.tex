@@ -72,25 +72,18 @@ Where $P(x)$ is a fitted polynomial function and $x$, $y$, and $\sigma$ are the 
 \noindent{\bf Question 3}
 \medskip
 
-An alternative formula for calculating a $\chi^2$ statistic is \begin{equation*}
-    \chi^2 = \sum_{i=1}^N \frac{(\bar{x_i}-x_i)^2}{\bar{x_i}}
-\end{equation*}
-which does not rely on the data coming with any error $\sigma$. However, being able to calculate a chi-squared value for these data does not mean that we will necessarily get a good fit. Radioactive decay behaves exponentially, not as a polynomial, so we have more fundamental issues with our methodology. Second- and third- order polynomials do not even come close visually to fitting the data. A fourth-order polynomial with coefficients \begin{equation*}
-    0.0193t^4 - 3.931t^3 + 295.364t^2 - 9923.637t + 131394.55
-\end{equation*}
-comes within the realm of feasibility, providing the fit shown in Fig.~\ref{fig:decay}. This yields $\chi^2=1606.5$ and we have 20 data points in \texttt{decay.dat}, so there are $20-5=15$ degrees of freedom in this fit. Therefore the reduced $\chi^2$ is $\chi_\nu^2 \cong 107.1$. This is still very poor. There is a chance that moving up to higher order polynomials may improve this, but a much better option would be to change the underlying model itself. For example, using an exponential model with fitted parameters \begin{equation*}
-    133565e^{-0.086t}
-\end{equation*}
-gives $\chi^2=12.2$ with $\chi_\nu^2 = 0.677$. This is an improvement of two orders of magnitude, and requires fewer parameters to attain a much better fit. Therefore we can conclude that this is a better fundamental model. 
-
-We can determine the half life by solving $\displaystyle 0.5 = e^{-0.086t}$. This yields $\ln(0.5)=-0.086t \implies t = 8.06$ days, or around 696000 seconds. This matches most closely with iodine-131, which has a half life of approximately 693 ks.
-
 \begin{figure}[H]
     \centering
-    \includegraphics[width=6in]{homework6/decay.png}
-    \caption{Radioactive decay data with two models fitted. Parameters for each model are those given above, with the exponential fit being decidedly better.}
-    \label{fig:decay}
+    \includegraphics[width=4.5in]{homework7/g_hist.png}
+    \caption{100-bin histogram (in gold) of the $\chi^2$ fit results for $g$ (the acceleration due to gravity) over 100,000 bootstrapped trials. The average result was $\bar{g}\cong-9.387$, with a standard deviation of $\sigma_g\cong0.042$ (the corresponding Gaussian PDF of which is shown in blue). Thus we can say that our routine has produced a result of $g=-9.387\pm0.042$, which interestingly does \emph{not} overlap with the accepted value of approximately 9.81.}
+    \label{fig:g}
 \end{figure}
+
+\bigskip
+\noindent{\bf Question 3}
+\medskip
+
+\noindent{Task 1:}
 
 \section{Conclusions}
 
