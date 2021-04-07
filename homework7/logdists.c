@@ -27,7 +27,7 @@ int main(int argc, char** argv)
 
   log_dist(x, y, log, N);
 
-  for(int j=0; j<N; j++) printf("%e\n", log[j]);
+  for(int j=0; j<N; j++) printf("%lf\n", log[j]);
   free(x);
   free(y);
   free(log);
