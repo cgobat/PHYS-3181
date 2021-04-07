@@ -1,0 +1,13 @@
+Homework 7 code assignment
+PHYS 3181 - Computational Physics, Spring 2021
+Author: Caden Gobat
+
+To compile, call "gcc -o bootstrap hw7.c linalgebra.c". This produces an executable called bootstrap.
+
+hw7.c contains code to read and fit data from a file using a bootstrapping routine, where the first line is the number of tables and then number of entries in each table.
+The following lines should be of the form <t> <y(t)>.
+As coded now, it takes the filename and the number of bootstrap reamplings as command-line arguments.
+
+For example, it can be run by calling "./bootstrap bootstrap.dat 100000" from a command line, which performs 100000 fits on the data in bootstrap.dat
+
+The program outputs the mean and standard deviation of each of the coefficients of the second-order polynomial that result from these computations.
