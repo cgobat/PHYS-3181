@@ -45,14 +45,14 @@ Where $P(x)$ is a fitted polynomial function and $x$, $y$, and $\sigma$ are the 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=4.5in]{homework7/uniform_dist.png}
+    \includegraphics[width=4.4in]{homework7/uniform_dist.png}
     \caption{100-bin histogram (in gold) with 100 bins of 100,000 random numbers generated using \texttt{C}'s \texttt{drand48()} function. As expected, this conforms relatively closely to a uniform distribution of floating point numbers between 0 and 1, the PDF of which is shown in blue.}
     \label{fig:drand48}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=4.5in]{homework7/normal_dist.png}
+    \includegraphics[width=4.4in]{homework7/normal_dist.png}
     \caption{100-bin histogram (in gold) of 100,000 random numbers generated using our \texttt{gaussrnd()} function. As expected, this conforms quite closely to a normal distribution with $\mu=1$ and $\sigma=1$, the PDF of which is shown in blue.}
     \label{fig:gaussrnd}
 \end{figure}
@@ -61,28 +61,12 @@ Where $P(x)$ is a fitted polynomial function and $x$, $y$, and $\sigma$ are the 
 \noindent{\bf Question 2}
 \medskip
 
-Using all 118 data points in the \texttt{cannonball.dat} file yields a best-fit of \begin{equation*}
-    y(t) = -4.6924t^2 - 3.4245t + 1.6395.64
-\end{equation*}
-With $\chi^2 \cong 140.24$. This fit has found $g\approx9.385\text{ m/s}^2$, which is now an \emph{under}estimate compared to its actual known value of $\sim9.81\text{ m/s}^2$. Given that the number of data points for this fit is now $N=118$, we now have $N-3=115$ degrees of freedom, making our reduced chi-squared $\frac{\chi^2}{\text{dof}} = \frac{140.24}{115} \cong 1.22$. This can now be said to be an appropriate fit, as it is greater than but on the order of 1 ($\chi_\nu^2 = 1$ indicates a perfect fit).
-
-The confidence (as described previously) is $\alpha=0.055$, meaning we can only be 5.5\% sure that our model represents a good fit to these data. This could be due to the effects of air resistance, which introduces another term into the underlying differential equation and makes the acceleration non-constant. In the first 6 seconds, the effect would not be noticeable, but over the entire trajectory, it becomes noticeable and thus affects the goodness of the fit.
-
-\begin{table}[H]
+\begin{figure}[H]
     \centering
-    \begin{tabular}{c|l|l}
-         & Value & Expectation \\
-        \hline
-        $g$ & -9.385 & -9.81 \\
-        $v_0$ & -3.42 & $\sim-15.62$ \\
-        $y_0$ & 16395.6 & 16381.567 \\
-        $\chi^2$ & 140.24 & 115 \\
-        $\chi_\nu^2$ & 1.22 & 1 \\
-        conf & 0.055 &
-    \end{tabular}
-    \caption{Summary of second-order polynomial fit results for the entirety of the \texttt{cannonball.dat} data.}
-    \label{tab:fit1}
-\end{table}
+    \includegraphics[width=4.4in]{homework7/log_dist.png}
+    \caption{100-bin histogram (in gold) of 100,000 randomly generated numbers from the distribution $\log(x^2+y^2)$, where $x$ and $y$ are each uniformly-distributed variables with $\bar{x}=1$, $\bar{y}=4$, $\sigma_x=2$, and $\sigma_y=1$. The PDF of a normal distribution with $\mu=\log(1^2+4^2)=\log(17)$ and $\displaystyle \sigma^2=\left(\left.\frac{\partial f}{\partial x}\right|_{\bar{x},\bar{y}}\right)^2\sigma_x^2 + \left(\left.\frac{\partial f}{\partial y}\right|_{\bar{x},\bar{y}}\right)^2\sigma_y^2 = \frac{16\bar{x}^2}{(\bar{x}^2+\bar{y}^2)^2}+\frac{4\bar{y}^2}{(\bar{x}^2+\bar{y}^2)^2}=\frac{80}{289}$. This PDF is in less agreement with the distribution than in the previous problem because the logarithm throws off the normality of the selection. Although $x$ and $y$ are each normally distributed, taking the logarithm of their squared sum creates a sample of numbers that are not normal, so trying to ascribe a Gaussian function with $\mu$ and $\sigma$ using this analytical technique is invalid.}
+    \label{fig:logx2y2}
+\end{figure}
 
 \bigskip
 \noindent{\bf Question 3}
