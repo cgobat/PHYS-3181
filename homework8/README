@@ -1,0 +1,14 @@
+Homework 8 code assignment
+PHYS 3181 - Computational Physics, Spring 2021
+Author: Caden Gobat
+
+To compile, call "gcc -o particles hw8.c integrator.c". This produces an executable called particles.
+
+hw8.c contains code to calculate and print out the positions and velocities of gas particles in a box.
+For a single particle in 2 dimensions, the output lines are each of the form:
+    t x y vx vy a1 a2 a3 a4
+    where the a values are the cumulative impulse imparted by each of the 4 walls
+As coded now, it takes number of particles, box dimension, energy per particle, timestep size, total time, and step interval to print out as command-line arguments.
+
+For example, it could be run by calling "./particles 1 5 5 1 10 1" from a command line.
+This will set N=1, L=5, EperN=5, dt=1, t=10, and print every step.
