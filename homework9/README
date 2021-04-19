@@ -1,0 +1,14 @@
+Homework 9 code assignment
+PHYS 3181 - Computational Physics, Spring 2021
+Author: Caden Gobat
+
+To compile, call "gcc -o gas hw9.c". This produces an executable called gas.
+
+hw9.c is based on the gas.c code we wrote in class, and contains code to simulate a system of N particles interacting at a fixed temperature
+The output lines are each of the form
+    i x1 y1 vx1 vy1 x2 y2 vx2 vy2 ... xN yN vxN vyN
+    where i is the measurement number
+As command-line inputs, it takes the # of particles, dimensions of the box, temperature, spatial offset, velocity offset, # of updates, and # of prints to skip
+
+For example, it could be run by calling "./gas 200 40 5 2 1 10 1" from a command line.
+This will set N=200, L=40, kT=5, dx=2, dv=1, 10 measurements, and print every step.
