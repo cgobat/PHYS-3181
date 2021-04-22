@@ -1,0 +1,74 @@
+\documentclass{article}
+
+\usepackage{graphicx, xcolor}
+\usepackage{amsmath, amssymb}
+\usepackage{float}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+
+\usepackage[margin=1in]{geometry}
+
+\def\hwtitle{Homework 9: Metropolis algorithm and the canonical ensemble}
+\def\hwauthor{Caden Gobat}
+\def\hwdate{\today}
+
+\usepackage{fancyhdr}
+\lhead{\hwauthor}
+\chead{\hwtitle}
+\rhead{\hwdate}
+\lfoot{\hwauthor}
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\footrulewidth}{0.4pt}
+\pagestyle{fancy}
+
+\author{\hwauthor}
+\title{\hwtitle}
+\date{\hwdate}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\section{Introduction}
+
+Last week, we made a foray into molecular dynamics by implementing an $N$-body simulation of gas particles interacting via only the Lennard-Jones potential (microcanonical ensemble): \begin{equation}
+   V(r)=4\epsilon\left[\left(\frac{r_0}{r}\right)^{12} - \left(\frac{r_0}{r}\right)^6\right]
+\end{equation}
+
+Now we will use the Metropolis algorithm to simulate the canonical ensemble. Here we accept or reject randomly determined updates based on a probability which is dependent on the partition function of the system. The probability distribution of microstates is given by \begin{equation}
+   P(s)=\frac{1}{Z}e^{\frac{-1}{kT}E(s)}
+\end{equation}
+where $\displaystyle E(s)=\frac{1}{2}\sum_{i=1}^{N} v_{i}^2 + \sum_{i=1}^{N} \sum_{j=i+1}^{N} V(r_{ij})$.
+
+\section{Results}
+
+\bigskip
+\noindent{\bf Question 1}
+\medskip
+
+
+\bigskip
+\noindent{\bf Question 2}
+\medskip
+
+
+\bigskip
+\noindent{\bf Question 3}
+\medskip
+
+
+\bigskip
+\noindent{\bf Question 4}
+\medskip
+
+
+
+\section{Conclusions}
+
+Although a bit tricky on the coding side, I found this assignment to be a nice look into these techniques that are so common in scientific data analysis. The first few problems were a good conceptual introduction to the kind of thinking necessary to complete the more advanced ones.
+
+I do wonder if there are more advanced methods one can employ that are more effective at dealing with large errors in datasets, and would be interested to learn more about this.
+
+
+\end{document}
