@@ -1,0 +1,12 @@
+Homework 10 code assignment
+PHYS 3181 - Computational Physics, Spring 2021
+Author: Caden Gobat
+
+To compile, call "gcc -o pde hw10.c". This produces an executable called pde.
+
+hw10.c is based on the Gauss-Seidel routine we've been studying in class, and contains code to numerically solve the Laplace equation in 2 dimensions.
+It prints out the results of the computation, the number of iterations it took to reach the desired precision, and the result of the flux integral.
+As command-line inputs, it takes the # of points/nodes per side of the box (N) and the desired precision/tolerance (δ).
+
+For example, it could be run by calling "./pde 20 0.01" from a command line.
+This will set create a 20x20 point square, and run the solver until the precision is within 0.01.
