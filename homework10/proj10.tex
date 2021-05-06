@@ -10,7 +10,7 @@
 
 \def\hwtitle{Homework 10: Laplace equation}
 \def\hwauthor{Caden Gobat}
-\def\hwdate{\today}
+\def\hwdate{May 5, 2021}
 
 \usepackage{fancyhdr}
 \lhead{\hwauthor}
@@ -33,7 +33,7 @@
 
 \section{Introduction}
 
-In this final assignment, we solve the Laplace equation using the Gauss-Seidel method. The Laplace equation is a partial differential equation that governs the steady-state
+In this final assignment, we solve the Laplace equation using the Gauss-Seidel method. The Laplace equation is a partial differential equation that (among other applications) governs the steady-state behavior of temperature through a medium.
 
 \section{Results}
 
@@ -84,14 +84,13 @@ We can the calculate the power loss as \begin{align*}
     \end{figure}
 \end{enumerate}
 
-\bigskip
 \noindent{\bf Question 3}
 \medskip
 
-\begin{figure}
+\begin{figure}[H]
     \centering
-    \includegraphics{}
-    \caption{Caption}
+    \includegraphics[width=4.25in]{homework10/3.png}
+    \caption{Plot of convergence steps as a function of grid resolution. The very close fit provided by a second-order polynomial indicates that this algorithm's computation time scales as $\mathcal{O}(N^2)$.}
     \label{fig:3}
 \end{figure}
 
@@ -99,15 +98,15 @@ We can the calculate the power loss as \begin{align*}
 \noindent{\bf Question 4}
 \medskip
 
-\begin{figure}
+\begin{figure}[H]
     \centering
-    \includegraphics{}
-    \caption{Caption}
+    \includegraphics[width=4.5in]{homework10/4.png}
+    \caption{Calculated flux as a function of $N$. The fit was found to be $\displaystyle \Phi(N)\cong655-\frac{2047}{N}$, which informs us that the infinite-resolution flux is $\Phi(\infty)\approx655$ W/cm$^2$.}
     \label{fig:4}
 \end{figure}
 
 \section{Conclusions}
 
-foo
+I found the work for this last report to be very satisfying. It brought together many concepts we've learned over the semester in this class, and even involved some concepts we've addressed in other classes as well. This was a very fitting conclusion to the semester.
 
 \end{document}
