@@ -33,7 +33,7 @@
 
 \section{Introduction}
 
-In this final assignment, we solve the Laplace equation using the Gauss-Seidel method. The Laplace equation is a partial differential equation
+In this final assignment, we solve the Laplace equation using the Gauss-Seidel method. The Laplace equation is a partial differential equation that governs the steady-state
 
 \section{Results}
 
@@ -54,25 +54,57 @@ We can the calculate the power loss as \begin{align*}
     &\approx \boxed{-190\text{ W}}
 \end{align*}
 
+\newpage
+
 \bigskip
 \noindent{\bf Question 2}
 \medskip
 
 \begin{enumerate}[label=\alph*)]
-    \item c
+    \item $ $ \begin{figure}[H]
+        \centering
+        \includegraphics[width=5in]{homework10/2a.png}
+        \caption{Contour plot of temperature through the square support plate.}
+        \label{fig:2a}
+    \end{figure}
+    \item Heat flux has units of power per area. Because there is no loss, the flux through any closed contour on the support will be the same---the energy can't go anywhere else. First lets calculate the flux through the smaller contour (square circumscribing the pipe). I will use one side (here, the upper side, just above the circle in the $y$-direction), since the flux through each side of the square contour will be identical: \begin{align*}
+        F &= \frac{\sigma}{A} \int_0^t\int_{\ell_\text{min}}^{\ell_\text{max}} \nabla T_y\ dx dh\\
+        &= \frac{0.1\text{ W/(cm}\cdot\text{K)}}{10\text{ cm}^2}\cdot\int_0^1 \int_{-10}^{10} \nabla T_{y=10}\  dx dh \cong 637\text{ W/cm}^2
+    \end{align*}
+    Performing the same computation on the outside edge of the support yields \begin{gather*}
+        F = \frac{0.1\text{ W/(cm}\cdot\text{K)}}{15\text{ cm}^2}\cdot\int_0^1 \int_{-15}^{15} \nabla T_{y=10}\  dx dh \cong 642\text{ W/cm}^2
+    \end{gather*}
+    These results are easily equivalent to within the margin of numerical/computation error, confirming that we have not incurred any unexpected losses.
+    \newpage
+    \item $ $ \begin{figure}[H]
+        \centering
+        \includegraphics[width=5in]{homework10/2c.png}
+        \caption{Temperature gradient throughout the support plate. Colors correspond to the magnitude of the gradient in K/cm.}
+        \label{fig:2c}
+    \end{figure}
 \end{enumerate}
 
 \bigskip
 \noindent{\bf Question 3}
 \medskip
 
-
+\begin{figure}
+    \centering
+    \includegraphics{}
+    \caption{Caption}
+    \label{fig:3}
+\end{figure}
 
 \bigskip
 \noindent{\bf Question 4}
 \medskip
 
-
+\begin{figure}
+    \centering
+    \includegraphics{}
+    \caption{Caption}
+    \label{fig:4}
+\end{figure}
 
 \section{Conclusions}
 
