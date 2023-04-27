@@ -33,9 +33,9 @@
 
 Analytical solutions to differential equations or other applications of integrals are often impractical, overly cumbersome, or outright impossible. Under such conditions, we apply \emph{numerical} integration techniques to arrive at an answer that (we hope) reflects the real solution. There are countless formulae and algorithms for doing this, but a good way to begin conceptualizing it is to consider a basic Riemann sum:
 \begin{equation}\label{eq:riemann}
-    \int_a^b f(x) dx \approx \sum_{i=0}^n f(x_i) \Delta x
+    \int_a^b f(x) dx \approx \sum_{i=1}^n f(x_i) \Delta x
 \end{equation}
-where $a=x_i$, $b=x_n$, and $\Delta x$ is very small. In the limit as $\Delta x \to \infty$, Eq.~\ref{eq:riemann} becomes an equality rather than a mere approximation. For computational purposes however, we have no choice but to use a discrete domain. This assignment will explore the impact of varying levels of discretization, different summation methods, and the accuracy of numerical vs. analytical methods.
+where $a=x_1$, $b=x_n$, and $\Delta x$ is very small. In the limit as $\Delta x \to 0$, Eq.~\ref{eq:riemann} becomes an equality rather than a mere approximation. For computational purposes however, we have no choice but to use a discrete domain. This assignment will explore the impact of varying levels of discretization, different summation methods, and the accuracy of numerical vs. analytical methods.
 
 \section{Results}
 
